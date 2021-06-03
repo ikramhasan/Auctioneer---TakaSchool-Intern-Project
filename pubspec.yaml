@@ -21,6 +21,8 @@ dev_dependencies:
   very_good_analysis: ^2.1.0
   flutter_native_splash: ^1.1.8+4
   lottie: ^1.0.1
+  google_fonts: ^2.1.0
+  font_awesome_flutter: ^9.0.0
 
 flutter:
   uses-material-design: true

@@ -1,10 +1,5 @@
-// Copyright (c) 2021, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'dart:async';
 import 'dart:developer';
 
@@ -18,6 +13,11 @@ void main() {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
+
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('assets/licenses/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
 
   runZonedGuarded(
     () => runApp(const App()),
